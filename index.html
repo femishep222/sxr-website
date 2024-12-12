@@ -3,55 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shepherd Guide</title>
+    <title>ShepherdXR</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
+    <!-- Section 1 -->
+    <div class="whitespace"></div>
     <header>
-        <h1 class="purple-header">Shepherd Guide</h1>
+        <img src="assets/logo.png" alt="ShepherdXR Logo" class="logo">
     </header>
-
+    <div class="whitespace"></div>
+    
     <section class="mission">
-        <p>Enter a LaTeX equation below to render it:</p>
-        <input type="text" id="latexInput" placeholder="Enter LaTeX code (e.g., x^2 + y^2 = z^2)">
-        <button onclick="renderEquation()">Render</button>
-        <button onclick="generatePrompts()">Get Helpful Prompts</button>
-        <div id="output" class="output-box"></div>
-        <div id="prompts" class="output-box"></div>
+        <img src="assets/classroom1.jpg" alt="Classroom" class="classroom-image">
+        <div class="whitespace"></div>
+        <h1 class="purple-header">ShepherdXR</h1>
+        <div class="whitespace"></div>
+        <p class="mission-text">
+            Mission: At ShepherdXR, we’re on a mission to discover and empower the unexpected Einsteins of tomorrow. 
+            As an ed-tech non-profit, we’re tackling the crisis of lost potential: when middle schoolers hit that giant wall 
+            between arithmetic and algebra — often derailing their math journey for life. 
+            Our flagship product, Shepherd Math, transforms the subject from a dreaded chore into a thrilling adventure 
+            in Extended Reality (XR/VR).
+        </p>
+        <div class="whitespace"></div>
+        <div class="slideshow">
+            <img src="assets/classroom1.jpg" alt="Classroom 1" class="slide" id="slide">
+        </div>
+        <div class="whitespace"></div>
+    </section>
+    
+    <!-- Shepherd Guide Link -->
+    <section class="guide-link">
+        <div class="whitespace"></div>
+        <h2>For Instructors</h2>
+        <p>Visit the <a href="shepherd-guide.html">Shepherd Guide</a> to input math equations and get rendering and helpful prompts!</p>
+        <div class="whitespace"></div>
     </section>
 
+    <!-- Contact Us Section -->
     <footer class="contact">
-        <p>Return to <a href="index.html">ShepherdXR Home</a></p>
+        <h2>Contact Us</h2>
+        <p>Email: support@shepherdxr.com</p>
+        <p>Phone: +1 (800) 555-1234</p>
     </footer>
 
-    <script>
-        function renderEquation() {
-            const latex = document.getElementById("latexInput").value;
-            document.getElementById("output").innerHTML = `\\(${latex}\\)`;
-            MathJax.typeset();
-        }
-
-        async function generatePrompts() {
-            const equation = document.getElementById("latexInput").value;
-            const promptsDiv = document.getElementById("prompts");
-            promptsDiv.innerHTML = "Generating prompts...";
-
-            try {
-                const response = await fetch('/generate-prompts', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ equation }),
-                });
-                const data = await response.json();
-                promptsDiv.innerHTML = data.prompts
-                    .map((prompt, index) => `<p><strong>Prompt ${index + 1}:</strong> ${prompt}</p>`)
-                    .join('');
-            } catch (error) {
-                promptsDiv.innerHTML = "Error generating prompts. Please try again.";
-                console.error(error);
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
