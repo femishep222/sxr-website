@@ -56,7 +56,7 @@
             promptsDiv.innerHTML = "Generating prompts...";
 
             try {
-                const response = await fetch('https://your-backend-url.onrender.com/generate-prompts', {
+                const response = await fetch('https://sxr-backend.onrender.com', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ equation }),
