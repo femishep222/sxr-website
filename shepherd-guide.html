@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- MathJax Script -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="purple-header">Shepherd Guide</h1>
+    </header>
+
+    <section class="mission">
+        <p>Enter a LaTeX equation below to render it:</p>
+        <input type="text" id="latexInput" placeholder="Enter LaTeX code (e.g., x^2 + y^2 = z^2)">
+        <button onclick="renderEquation()">Render</button>
+        <div id="output" class="output-box"></div>
+    </section>
+
+    <footer class="contact">
+        <p>Return to <a href="index.html">ShepherdXR Home</a></p>
+    </footer>
+
+    <script>
+        function renderEquation() {
+            const latex = document.getElementById("latexInput").value;
+            document.getElementById("output").innerHTML = `\\(${latex}\\)`;
+            MathJax.typeset(); // Trigger MathJax rendering
+        }
+    </script>
+</body>
+</html>

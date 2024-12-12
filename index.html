@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="purple-header">Shepherd Guide</h1>
+    </header>
+
+    <section class="mission">
+        <p>Enter a LaTeX equation below to render it:</p>
+        <input type="text" id="latexInput" placeholder="Enter LaTeX code (e.g., x^2 + y^2 = z^2)">
+        <button onclick="renderEquation()">Render</button>
+        <button onclick="generatePrompts()">Get Helpful Prompts</button>
+        <div id="output" class="output-box"></div>
+        <div id="prompts" class="output-box"></div>
+    </section>
+
+    <footer class="contact">
+        <p>Return to <a href="index.html">ShepherdXR Home</a></p>
+    </footer>
+
+    <script>
+        function renderEquation() {
+            const latex = document.getElementById("latexInput").value;
+            document.getElementById("output").innerHTML = `\\(${latex}\\)`;
+            MathJax.typeset();
+        }
+
+        async function generatePrompts() {
+            const equation = document.getElementById("latexInput").value;
+            const promptsDiv = document.getElementById("prompts");
+            promptsDiv.innerHTML = "Generating prompts...";
+
+            try {
+                const response = await fetch('/generate-prompts', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ equation }),
+                });
+                const data = await response.json();
+                promptsDiv.innerHTML = data.prompts
+                    .map((prompt, index) => `<p><strong>Prompt ${index + 1}:</strong> ${prompt}</p>`)
+                    .join('');
+            } catch (error) {
+                promptsDiv.innerHTML = "Error generating prompts. Please try again.";
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>

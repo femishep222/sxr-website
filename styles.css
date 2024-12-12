@@ -1,0 +1,108 @@
+/* Root variables */
+:root {
+    --purple: #6a1b9a;
+    --white: #ffffff;
+    --whiteseparation: 2rem;
+    --font-sans: 'Arial', sans-serif;
+    --font-serif: 'Georgia', serif;
+}
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: #333;
+    background-color: var(--white);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Logo styling */
+header .logo {
+    display: block;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* White space */
+.whitespace {
+    height: var(--whiteseparation);
+}
+
+/* Mission section */
+.mission {
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.mission .classroom-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.purple-header {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--purple);
+    text-transform: uppercase;
+}
+
+.mission-text {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Slideshow */
+.slideshow {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+    overflow: hidden;
+}
+
+.slide {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Contact Us Section */
+.contact {
+    background-color: var(--purple);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.contact h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+/* Shepherd Guide output box */
+.output-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    min-height: 50px;
+    text-align: center;
+}
