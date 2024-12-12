@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Slideshow logic
-    const slides = ["assets/classroom1.jpeg", "assets/classroom2.jpeg", "assets/classroom3.jpeg", "assets/student1.jpeg"];
+    const slides = ["assets/classroom1.JPEG", "assets/classroom2.jpeg", "assets/classroom3.jpeg", "assets/student1.jpeg"];
     const slideElement = document.getElementById("slide");
     let currentSlide = 0;
 
